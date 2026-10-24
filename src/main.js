@@ -237,14 +237,19 @@ const spyTargets = [
   ).entries(),
 ]
   .filter(([, section]) => section)
-  .map(([href, section]) => ({ href, section }));
+  .map(([href, section]) => ({ href, section }))
+  .sort(
+    (a, b) =>
+      a.section.getBoundingClientRect().top - b.section.getBoundingClientRect().top,
+  );
 
 const setActiveNavLink = () => {
   let current = spyTargets[0];
   spyTargets.forEach((entry) => {
     if (entry.section.getBoundingClientRect().top <= 140) current = entry;
   });
-  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  if (window.scrollY >= maxScroll - 40) {
     current = spyTargets[spyTargets.length - 1];
   }
   navLinks.forEach((link) => {
