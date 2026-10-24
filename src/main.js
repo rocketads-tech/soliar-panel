@@ -140,29 +140,37 @@ if (!prefersReducedMotion) {
   gsap.utils.toArray('[data-animate]').forEach((el) => {
     const kind = el.dataset.animate || 'up';
     const from = { opacity: 0 };
-    if (kind === 'up') from.y = 44;
-    if (kind === 'left') from.x = 48;
-    if (kind === 'right') from.x = -48;
-    if (kind === 'zoom') from.scale = 0.94;
+    if (kind === 'up') from.y = 80;
+    if (kind === 'left') from.x = 96;
+    if (kind === 'right') from.x = -96;
+    if (kind === 'zoom') from.scale = 0.88;
 
     gsap.from(el, {
       ...from,
-      duration: 0.9,
-      ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'restart none none reverse',
+      },
     });
   });
 
   gsap.utils.toArray('[data-animate-group]').forEach((group) => {
-    const stagger = parseFloat(group.dataset.animateStagger || '0.12');
+    const stagger = parseFloat(group.dataset.animateStagger || '0.15');
 
     gsap.from(group.children, {
       opacity: 0,
-      y: 44,
-      duration: 0.9,
-      ease: 'power2.out',
+      y: 80,
+      duration: 1,
+      ease: 'power3.out',
       stagger,
-      scrollTrigger: { trigger: group, start: 'top 85%', once: true },
+      scrollTrigger: {
+        trigger: group,
+        start: 'top 88%',
+        toggleActions: 'restart none none reverse',
+      },
     });
   });
 }
