@@ -136,6 +136,35 @@ if (!prefersReducedMotion) {
   heroParallax
     .to('[data-hero-swiper]', { yPercent: 18, ease: 'none' }, 0)
     .to('[data-hero-content]', { yPercent: -14, autoAlpha: 0, ease: 'none' }, 0);
+
+  gsap.utils.toArray('[data-animate]').forEach((el) => {
+    const kind = el.dataset.animate || 'up';
+    const from = { opacity: 0 };
+    if (kind === 'up') from.y = 44;
+    if (kind === 'left') from.x = 48;
+    if (kind === 'right') from.x = -48;
+    if (kind === 'zoom') from.scale = 0.94;
+
+    gsap.from(el, {
+      ...from,
+      duration: 0.9,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+    });
+  });
+
+  gsap.utils.toArray('[data-animate-group]').forEach((group) => {
+    const stagger = parseFloat(group.dataset.animateStagger || '0.12');
+
+    gsap.from(group.children, {
+      opacity: 0,
+      y: 44,
+      duration: 0.9,
+      ease: 'power2.out',
+      stagger,
+      scrollTrigger: { trigger: group, start: 'top 85%', once: true },
+    });
+  });
 }
 
 const burger = document.querySelector('[data-burger]');
