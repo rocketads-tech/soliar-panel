@@ -1,6 +1,8 @@
 import './style.css';
 import Swiper from 'swiper';
 import { Autoplay, Keyboard } from 'swiper/modules';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import 'swiper/css';
 
 const currentEl = document.querySelector('[data-hero-current]');
@@ -116,6 +118,25 @@ newsletterForm.addEventListener('submit', (event) => {
     button.disabled = false;
   }, 2500);
 });
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const heroParallax = gsap.timeline({
+    scrollTrigger: {
+      trigger: '[data-hero-section]',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+
+  heroParallax
+    .to('[data-hero-swiper]', { yPercent: 18, ease: 'none' }, 0)
+    .to('[data-hero-content]', { yPercent: -14, autoAlpha: 0, ease: 'none' }, 0);
+}
 
 const burger = document.querySelector('[data-burger]');
 const menu = document.querySelector('#mobile-menu');
