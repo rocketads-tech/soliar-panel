@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c2ebe0" />
+      <stop offset=".6" stop-color="#9ed9cd" />
+      <stop offset="1" stop-color="#7fc9bd" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#284b76" />
+      <stop offset="1" stop-color="#356191" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)" />
+  <circle cx="1650" cy="250" r="90" fill="#fff2c0" opacity=".9" />
+  <g fill="#ffffff" opacity=".5">
+    <ellipse cx="500" cy="150" rx="150" ry="32" />
+    <ellipse cx="620" cy="120" rx="90" ry="24" />
+    <ellipse cx="1200" cy="190" rx="120" ry="26" />
+  </g>
+  <path d="M0 770 Q480 670 960 740 T1920 710 V1080 H0 Z" fill="#4a9c74" />
+  <path d="M0 865 Q520 775 1040 845 T1920 835 V1080 H0 Z" fill="#2f7a58" />
+  <g fill="#f7fcfb">
+    <rect x="1120" y="240" width="24" height="590" rx="10" />
+    <g transform="translate(1132 250)">
+      <rect x="-11" y="-190" width="22" height="190" rx="11" />
+      <rect x="-11" y="-190" width="22" height="190" rx="11" transform="rotate(120)" />
+      <rect x="-11" y="-190" width="22" height="190" rx="11" transform="rotate(240)" />
+      <circle r="16" />
+    </g>
+    <rect x="1420" y="430" width="16" height="390" rx="7" />
+    <g transform="translate(1428 436)">
+      <rect x="-8" y="-130" width="16" height="130" rx="8" />
+      <rect x="-8" y="-130" width="16" height="130" rx="8" transform="rotate(120)" />
+      <rect x="-8" y="-130" width="16" height="130" rx="8" transform="rotate(240)" />
+      <circle r="12" />
+    </g>
+  </g>
+  <g fill="#1f5c42">
+    <ellipse cx="70" cy="750" rx="120" ry="180" />
+    <ellipse cx="900" cy="710" rx="100" ry="190" />
+    <ellipse cx="1060" cy="760" rx="70" ry="140" />
+    <ellipse cx="1880" cy="770" rx="110" ry="170" />
+  </g>
+  <g transform="translate(1500 740)">
+    <rect y="85" width="210" height="135" fill="#8a5a3b" />
+    <path d="M-18 85 105 12 228 85Z" fill="#6e4630" />
+    <rect x="85" y="140" width="50" height="80" fill="#5c3a27" />
+    <rect x="148" y="112" width="40" height="36" fill="#bcd9d4" />
+  </g>
+  <ellipse cx="600" cy="975" rx="430" ry="46" fill="#000000" opacity=".12" />
+  <g transform="translate(340 630) skewX(-12)">
+    <rect x="60" width="560" height="300" rx="12" fill="url(#panel)" />
+    <path d="M60 75H620M60 150H620M60 225H620M200 0V300M340 0V300M480 0V300" stroke="#a9c4dd" stroke-width="7" fill="none" opacity=".85" />
+    <rect x="60" width="560" height="300" rx="12" fill="none" stroke="#22405f" stroke-width="10" />
+  </g>
+  <g transform="translate(1020 780) skewX(-12)">
+    <rect x="40" width="340" height="190" rx="10" fill="url(#panel)" />
+    <path d="M40 47H380M40 95H380M40 142H380M125 0V190M210 0V190M295 0V190" stroke="#a9c4dd" stroke-width="6" fill="none" opacity=".85" />
+    <rect x="40" width="340" height="190" rx="10" fill="none" stroke="#22405f" stroke-width="9" />
+  </g>
+  <rect y="1020" width="1920" height="60" fill="#276a4b" />
+</svg>

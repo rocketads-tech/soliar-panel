@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4ecd2" />
+      <stop offset=".55" stop-color="#bfe5d5" />
+      <stop offset="1" stop-color="#8fd0c2" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22406a" />
+      <stop offset="1" stop-color="#2e5b8c" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)" />
+  <circle cx="960" cy="260" r="110" fill="#ffe9a8" opacity=".95" />
+  <g fill="#ffffff" opacity=".45">
+    <ellipse cx="300" cy="200" rx="140" ry="30" />
+    <ellipse cx="1620" cy="160" rx="150" ry="34" />
+    <ellipse cx="1730" cy="190" rx="90" ry="24" />
+  </g>
+  <path d="M0 790 Q480 690 960 750 T1920 730 V1080 H0 Z" fill="#4a9c74" />
+  <path d="M0 880 Q520 790 1040 860 T1920 850 V1080 H0 Z" fill="#2f7a58" />
+  <g fill="#f7fcfb">
+    <rect x="300" y="360" width="22" height="470" rx="9" />
+    <g transform="translate(311 368)">
+      <rect x="-10" y="-170" width="20" height="170" rx="10" />
+      <rect x="-10" y="-170" width="20" height="170" rx="10" transform="rotate(120)" />
+      <rect x="-10" y="-170" width="20" height="170" rx="10" transform="rotate(240)" />
+      <circle r="15" />
+    </g>
+    <rect x="620" y="470" width="16" height="360" rx="7" />
+    <g transform="translate(628 476)">
+      <rect x="-8" y="-125" width="16" height="125" rx="8" />
+      <rect x="-8" y="-125" width="16" height="125" rx="8" transform="rotate(120)" />
+      <rect x="-8" y="-125" width="16" height="125" rx="8" transform="rotate(240)" />
+      <circle r="12" />
+    </g>
+  </g>
+  <g fill="#1f5c42">
+    <ellipse cx="140" cy="780" rx="110" ry="170" />
+    <ellipse cx="1560" cy="720" rx="90" ry="180" />
+    <ellipse cx="1800" cy="760" rx="120" ry="160" />
+  </g>
+  <g transform="translate(1000 720)">
+    <rect y="90" width="220" height="140" fill="#8a5a3b" />
+    <path d="M-18 90 110 12 238 90Z" fill="#6e4630" />
+    <rect x="90" y="145" width="52" height="85" fill="#5c3a27" />
+    <rect x="155" y="118" width="42" height="38" fill="#ffe9a8" />
+  </g>
+  <ellipse cx="560" cy="985" rx="430" ry="44" fill="#000000" opacity=".12" />
+  <g transform="translate(240 640) skewX(-11)">
+    <rect x="60" width="540" height="300" rx="12" fill="url(#panel)" />
+    <path d="M60 75H600M60 150H600M60 225H600M195 0V300M330 0V300M465 0V300" stroke="#a9c4dd" stroke-width="7" fill="none" opacity=".85" />
+    <rect x="60" width="540" height="300" rx="12" fill="none" stroke="#22405f" stroke-width="10" />
+  </g>
+  <rect y="1020" width="1920" height="60" fill="#276a4b" />
+</svg>
