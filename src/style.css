@@ -91,6 +91,8 @@
 [data-menu-backdrop] {
   opacity: 0;
   visibility: hidden;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   transition:
     opacity 0.4s ease,
     visibility 0s linear 0.4s;
