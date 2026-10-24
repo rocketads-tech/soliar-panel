@@ -190,7 +190,7 @@ const iconOpen = burger.querySelector('[data-icon-open]');
 const iconClose = burger.querySelector('[data-icon-close]');
 
 const setMenu = (open) => {
-  menu.hidden = !open;
+  menu.toggleAttribute('data-open', open);
   burger.setAttribute('aria-expanded', String(open));
   burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   iconOpen.classList.toggle('hidden', open);
@@ -212,7 +212,7 @@ const onHeaderScroll = () => {
   if (Math.abs(delta) < 4) return;
   if (delta > 0 && y > 240) {
     siteHeader.setAttribute('data-hidden', '');
-    if (!menu.hidden) setMenu(false);
+    if (menu.hasAttribute('data-open')) setMenu(false);
   } else {
     siteHeader.removeAttribute('data-hidden');
   }

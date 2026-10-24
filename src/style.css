@@ -68,6 +68,32 @@
   transform: translateY(-100%);
 }
 
+[data-mobile-menu] {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-14px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0s linear 0.4s;
+}
+
+[data-mobile-menu][data-open] {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mobile-menu] {
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-header] {
     transition: none;
