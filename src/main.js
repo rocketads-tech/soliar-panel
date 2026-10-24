@@ -3,6 +3,7 @@ import Swiper from 'swiper';
 import { Autoplay, Keyboard } from 'swiper/modules';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import 'swiper/css';
 
 const currentEl = document.querySelector('[data-hero-current]');
@@ -119,10 +120,18 @@ newsletterForm.addEventListener('submit', (event) => {
   }, 2500);
 });
 
+let smoother = null;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!prefersReducedMotion) {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+  smoother = ScrollSmoother.create({
+    wrapper: '#smooth-wrapper',
+    content: '#smooth-content',
+    smooth: 1.2,
+    effects: true,
+  });
 
   const heroParallax = gsap.timeline({
     scrollTrigger: {
@@ -211,3 +220,26 @@ const onHeaderScroll = () => {
 };
 
 window.addEventListener('scroll', onHeaderScroll, { passive: true });
+
+document.addEventListener('click', (event) => {
+  const anchor = event.target.closest('a[href^="#"]');
+  if (!anchor) return;
+  const href = anchor.getAttribute('href');
+  if (href === '#') return;
+  const target = document.querySelector(href);
+  if (!target) return;
+  event.preventDefault();
+  if (target === siteHeader) {
+    if (smoother) {
+      smoother.scrollTo(0, true);
+    } else {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    }
+    return;
+  }
+  if (smoother) {
+    smoother.scrollTo(target, true, 'top 90px');
+  } else {
+    target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  }
+});

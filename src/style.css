@@ -74,12 +74,7 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+section[id],
+footer[id] {
+  scroll-margin-top: 90px;
 }
