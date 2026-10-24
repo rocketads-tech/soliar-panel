@@ -186,18 +186,24 @@ if (!prefersReducedMotion) {
 
 const burger = document.querySelector('[data-burger]');
 const menu = document.querySelector('#mobile-menu');
+const backdrop = document.querySelector('[data-menu-backdrop]');
 const iconOpen = burger.querySelector('[data-icon-open]');
 const iconClose = burger.querySelector('[data-icon-close]');
 
 const setMenu = (open) => {
   menu.toggleAttribute('data-open', open);
+  backdrop.toggleAttribute('data-open', open);
   burger.setAttribute('aria-expanded', String(open));
   burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   iconOpen.classList.toggle('hidden', open);
   iconClose.classList.toggle('hidden', !open);
+  if (smoother) smoother.paused(open);
+  document.documentElement.classList.toggle('overflow-hidden', open);
 };
 
 burger.addEventListener('click', () => setMenu(!menu.hasAttribute('data-open')));
+
+backdrop.addEventListener('click', () => setMenu(false));
 
 menu.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => setMenu(false));
