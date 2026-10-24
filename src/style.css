@@ -59,6 +59,21 @@
   opacity: 0;
 }
 
+[data-header] {
+  transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: transform;
+}
+
+[data-header][data-hidden] {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-header] {
+    transition: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

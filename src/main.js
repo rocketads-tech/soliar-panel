@@ -136,44 +136,25 @@ if (!prefersReducedMotion) {
   heroParallax
     .to('[data-hero-swiper]', { yPercent: 18, ease: 'none' }, 0)
     .to('[data-hero-content]', { yPercent: -14, autoAlpha: 0, ease: 'none' }, 0);
-
-  gsap.utils.toArray('[data-animate]').forEach((el) => {
-    const kind = el.dataset.animate || 'up';
-    const from = { opacity: 0 };
-    if (kind === 'up') from.y = 80;
-    if (kind === 'left') from.x = 96;
-    if (kind === 'right') from.x = -96;
-    if (kind === 'zoom') from.scale = 0.88;
-
-    gsap.from(el, {
-      ...from,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'restart reverse restart reverse',
-      },
-    });
-  });
-
-  gsap.utils.toArray('[data-animate-group]').forEach((group) => {
-    const stagger = parseFloat(group.dataset.animateStagger || '0.15');
-
-    gsap.from(group.children, {
-      opacity: 0,
-      y: 80,
-      duration: 1,
-      ease: 'power3.out',
-      stagger,
-      scrollTrigger: {
-        trigger: group,
-        start: 'top 88%',
-        toggleActions: 'restart reverse restart reverse',
-      },
-    });
-  });
 }
+
+const siteHeader = document.querySelector('[data-header]');
+let lastKnownScrollY = window.scrollY;
+
+const onHeaderScroll = () => {
+  const y = window.scrollY;
+  const delta = y - lastKnownScrollY;
+  if (Math.abs(delta) < 4) return;
+  if (delta > 0 && y > 240) {
+    siteHeader.setAttribute('data-hidden', '');
+    if (!menu.hidden) setMenu(false);
+  } else {
+    siteHeader.removeAttribute('data-hidden');
+  }
+  lastKnownScrollY = y;
+};
+
+window.addEventListener('scroll', onHeaderScroll, { passive: true });
 
 const burger = document.querySelector('[data-burger]');
 const menu = document.querySelector('#mobile-menu');
