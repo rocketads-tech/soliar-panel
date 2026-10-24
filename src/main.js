@@ -227,6 +227,40 @@ const onHeaderScroll = () => {
 
 window.addEventListener('scroll', onHeaderScroll, { passive: true });
 
+const navLinks = [...document.querySelectorAll('[data-nav-link]')];
+const spyTargets = [
+  ...new Map(
+    navLinks.map((link) => [
+      link.getAttribute('href'),
+      document.querySelector(link.getAttribute('href')),
+    ]),
+  ).entries(),
+]
+  .filter(([, section]) => section)
+  .map(([href, section]) => ({ href, section }));
+
+const setActiveNavLink = () => {
+  let current = spyTargets[0];
+  spyTargets.forEach((entry) => {
+    if (entry.section.getBoundingClientRect().top <= 140) current = entry;
+  });
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+    current = spyTargets[spyTargets.length - 1];
+  }
+  navLinks.forEach((link) => {
+    const isActive = current && link.getAttribute('href') === current.href;
+    link.toggleAttribute('data-active', isActive);
+    if (isActive) {
+      link.setAttribute('aria-current', 'true');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+};
+
+setActiveNavLink();
+window.addEventListener('scroll', setActiveNavLink, { passive: true });
+
 document.addEventListener('click', (event) => {
   const anchor = event.target.closest('a[href^="#"]');
   if (!anchor) return;

@@ -46,35 +46,25 @@
         </a>
 
         <nav class="hidden lg:block" aria-label="Main navigation">
-          <ul class="flex items-center gap-8 text-[15px]">
+          <ul class="flex items-center gap-6 text-[15px]">
             <li>
               <a
-                href="#top"
+                href="#home"
+                data-nav-link
+                data-active
                 aria-current="page"
-                class="rounded-lg bg-brand-600 px-5 py-2 font-semibold text-white shadow-pill shadow-brand-800/60"
+                class="px-5 py-2"
                 >Home</a
               >
             </li>
             <li>
-              <a
-                href="#trade"
-                class="px-1 text-white transition hover:text-white/80"
-                >Trade</a
-              >
+              <a href="#innovators" data-nav-link class="px-5 py-2">Trade</a>
             </li>
             <li>
-              <a
-                href="#shop"
-                class="px-1 text-white transition hover:text-white/80"
-                >Shop</a
-              >
+              <a href="#shop" data-nav-link class="px-5 py-2">Shop</a>
             </li>
             <li>
-              <a
-                href="#contact"
-                class="px-1 text-white transition hover:text-white/80"
-                >Contact Us</a
-              >
+              <a href="#contact" data-nav-link class="px-5 py-2">Contact Us</a>
             </li>
           </ul>
         </nav>
@@ -113,16 +103,16 @@
         <nav aria-label="Mobile navigation" class="mx-auto max-w-[1200px] px-4 py-4 sm:px-6">
           <ul class="flex flex-col gap-1 text-[15px] font-medium">
             <li>
-              <a href="#top" aria-current="page" class="block rounded-lg bg-brand-600 px-4 py-2.5 font-semibold text-white shadow-pill shadow-brand-800/60">Home</a>
+              <a href="#home" data-nav-link data-active aria-current="page" class="block rounded-lg px-4 py-2.5">Home</a>
             </li>
             <li>
-              <a href="#trade" class="block rounded-lg px-4 py-2.5 text-white/90 transition hover:bg-white/10 hover:text-white">Trade</a>
+              <a href="#innovators" data-nav-link class="block rounded-lg px-4 py-2.5">Trade</a>
             </li>
             <li>
-              <a href="#shop" class="block rounded-lg px-4 py-2.5 text-white/90 transition hover:bg-white/10 hover:text-white">Shop</a>
+              <a href="#shop" data-nav-link class="block rounded-lg px-4 py-2.5">Shop</a>
             </li>
             <li>
-              <a href="#contact" class="block rounded-lg px-4 py-2.5 text-white/90 transition hover:bg-white/10 hover:text-white">Contact Us</a>
+              <a href="#contact" data-nav-link class="block rounded-lg px-4 py-2.5">Contact Us</a>
             </li>
           </ul>
           <a
@@ -141,7 +131,7 @@
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <main>
-      <section data-hero-section class="relative isolate overflow-hidden bg-brand-500" aria-labelledby="hero-title">
+      <section id="home" data-hero-section class="relative isolate overflow-hidden bg-brand-500" aria-labelledby="hero-title">
         <div class="absolute inset-0 -z-10" aria-hidden="true">
           <div class="swiper h-full w-full" data-hero-swiper>
             <div class="swiper-wrapper">
@@ -792,7 +782,7 @@
       </section>
     </main>
 
-    <footer class="bg-night">
+    <footer id="contact" class="bg-night">
       <div class="mx-auto max-w-[1200px] px-4 py-20 sm:px-6">
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_400px] lg:gap-8">
           <div>
