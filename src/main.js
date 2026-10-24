@@ -197,7 +197,7 @@ const setMenu = (open) => {
   iconClose.classList.toggle('hidden', !open);
 };
 
-burger.addEventListener('click', () => setMenu(menu.hidden));
+burger.addEventListener('click', () => setMenu(!menu.hasAttribute('data-open')));
 
 menu.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => setMenu(false));
