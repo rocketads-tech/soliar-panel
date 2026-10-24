@@ -152,7 +152,7 @@ if (!prefersReducedMotion) {
       scrollTrigger: {
         trigger: el,
         start: 'top 88%',
-        toggleActions: 'restart none none reverse',
+        toggleActions: 'restart reverse restart reverse',
       },
     });
   });
@@ -169,7 +169,7 @@ if (!prefersReducedMotion) {
       scrollTrigger: {
         trigger: group,
         start: 'top 88%',
-        toggleActions: 'restart none none reverse',
+        toggleActions: 'restart reverse restart reverse',
       },
     });
   });
